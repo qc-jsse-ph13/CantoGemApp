@@ -14,6 +14,13 @@ public class LibraryHandler : MonoBehaviour
         foreach (string filePath in mp3Files)
         {
             GameObject newObj = Instantiate(objectPrefab, container);
+
+            Song song = newObj.GetComponent<Song>();
+
+            if (song != null)
+            {
+                song.SetText(filePath);
+            }
         }
     }
 }
