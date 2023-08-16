@@ -1,0 +1,158 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+using UnityEngine.Networking;
+
+public class WebHandler
+{
+    private const String server_address = "http://8.222.130.100";
+    private string user_id;
+    
+    private string progress;
+    private bool finishedDownloading;
+
+    private string result;
+
+    private MonoBehaviour mono;
+
+
+    // http://8.222.130.100/<id>/generate
+    // http://8.222.130.100/<id>/progress
+    // http://8.222.130.100/<id>/get-mp3
+    // http://8.222.130.100/<id>/changetempo/<newtempo>
+
+
+    public WebHandler(string user_id, MonoBehaviour mono)
+    {
+        this.user_id = user_id;
+        this.mono = mono;
+    }
+
+    public void startGenerate(string lyrics, string songName)
+    {
+        Reset();
+        mono.StartCoroutine(generate(lyrics, songName));
+    }
+
+    public string getProgress()
+    {
+        return progress;
+    }
+
+    public bool hasFinishedDownloading()
+    {
+        return finishedDownloading;
+    }
+
+    public string getResult()
+    {
+        return result;
+    }
+
+    public void Reset()
+    {
+        progress = "0.00%";
+        finishedDownloading = false;
+        result = "";
+    }
+
+
+    private IEnumerator generate(string lyrics, string songName)
+    {
+        string base_url = server_address + "/" + user_id;
+        string send_data_url = base_url + "/generate";
+        string progress_bar_url = base_url + "/progress";
+        string play_mp3_url = base_url + "/get-mp3";
+
+        string formatted_lyrics = "{\"lyrics\":" + "\"" + lyrics + "\"}";
+        mono.StartCoroutine(get_progress_bar_request(progress_bar_url));
+        yield return mono.StartCoroutine(postRequest(send_data_url, formatted_lyrics));
+        mono.StartCoroutine(downloadMP3(play_mp3_url, songName));
+    }
+
+
+    private IEnumerator downloadMP3(string url, string songName)
+    {
+        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.LogError("Error downloading MP3: " + www.error);
+                yield break;
+            }
+
+            Debug.Log("Loaded, dataset path = " + Application.persistentDataPath);
+
+            string filePath = Application.persistentDataPath + "/" + songName + ".mp3";
+            System.IO.File.WriteAllBytes(filePath, www.downloadHandler.data);
+
+            finishedDownloading = true;
+        }
+    }
+
+
+
+    private IEnumerator get_progress_bar_request(string uri)
+    {
+
+        yield return new WaitForSeconds(1f); // wait for file creation
+
+        float prev_percentage = 0;
+
+        while (true)
+        {
+            UnityWebRequest uwr = UnityWebRequest.Get(uri);
+            uwr.timeout = 1000;
+
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Error While Sending: " + uwr.error);
+            }
+            else
+            {
+                string text = uwr.downloadHandler.text;
+                float percentage = float.Parse(text.TrimEnd('%'));
+
+                if (percentage < prev_percentage)
+                {
+                    progress = text;
+                    yield break;
+                }
+
+                progress = text;
+                prev_percentage = percentage;
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+
+    }
+
+    private IEnumerator postRequest(string uri, string jsonData)
+    {
+        UnityWebRequest uwr = UnityWebRequest.Put(uri, jsonData);
+        uwr.timeout = 1000;
+        uwr.SetRequestHeader("Content-Type", "application/json");
+
+        yield return uwr.SendWebRequest();
+
+        if (uwr.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Error While Sending: " + uwr.error);
+        }
+        else
+        {
+            result = uwr.downloadHandler.text;
+            Debug.Log("Received: " + result);
+        }
+    }
+
+}
