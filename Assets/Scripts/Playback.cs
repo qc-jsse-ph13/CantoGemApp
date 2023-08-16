@@ -74,7 +74,7 @@ public class Playback : MonoBehaviour
 
         StringBuilder lyricsBuilder = new StringBuilder(lyrics);
 
-        for (int i = 0; i < elements.Length; i++)
+        for (int i = 0; i < elements.Length - 1; i++)
         {
             if (pitches[i] == 0)
             {

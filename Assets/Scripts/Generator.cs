@@ -41,11 +41,23 @@ public class Generator : MonoBehaviour
     {
         if (webHandler.hasFinishedDownloading())
         {
+            if (webHandler.getStatusCode() != 200)
+            {
+                if(webHandler.getStatusCode() == 409)
+                {
+                    SceneManager.LoadScene("Home Screen", LoadSceneMode.Single);
+                    Init.ResetUserID();
+                    Debug.Log("Re-generating user-id");
+                }
+                webHandler.Reset();
+                return;
+            }
+
             SceneManager.LoadScene("Save Screen", LoadSceneMode.Single);
-            print(songName);
-            print(lyrics);
-            SaveResult(songName, lyrics, webHandler.getResult());
+
+            saveResult(songName, lyrics, webHandler.getResult());
             webHandler.Reset();
+
         } else
         {
             string percentageText = webHandler.getProgress();
@@ -55,7 +67,7 @@ public class Generator : MonoBehaviour
 
     }
 
-    private void SaveResult(string songName, string lyrics, string result)
+    private void saveResult(string songName, string lyrics, string result)
     {
         string json = "{\"songName\":\"" + songName + "\",\"lyrics\":\"" + lyrics + "\",\"result\":\"" + result + "\"}";
 

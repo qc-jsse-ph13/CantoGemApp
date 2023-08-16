@@ -10,7 +10,7 @@ public class ChangeScreen : MonoBehaviour
         SceneManager.LoadScene("Song Name Screen", LoadSceneMode.Single);
     }
 
-    public void GoToGenerateScreen()
+    public void GoToLyricsScreen()
     {
         SceneManager.LoadScene("Lyrics Screen", LoadSceneMode.Single);
     }
@@ -22,7 +22,8 @@ public class ChangeScreen : MonoBehaviour
 
     public void GoToLoadingScreen()
     {
-        SceneManager.LoadScene("Loading Screen", LoadSceneMode.Single);
+        if(!InputHandler.containsIllegalCharacters)
+            SceneManager.LoadScene("Loading Screen", LoadSceneMode.Single);
     }
 
     public void GoToHomeScreen()

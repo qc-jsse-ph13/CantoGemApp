@@ -14,6 +14,7 @@ public class WebHandler
     
     private string progress;
     private bool finishedDownloading;
+    private int statusCode;
 
     private string result;
 
@@ -48,6 +49,11 @@ public class WebHandler
         return finishedDownloading;
     }
 
+    public int getStatusCode()
+    {
+        return statusCode;
+    }
+
     public string getResult()
     {
         return result;
@@ -58,6 +64,7 @@ public class WebHandler
         progress = "0.00%";
         finishedDownloading = false;
         result = "";
+        statusCode = -1;
     }
 
 
@@ -71,7 +78,9 @@ public class WebHandler
         string formatted_lyrics = "{\"lyrics\":" + "\"" + lyrics + "\"}";
         mono.StartCoroutine(get_progress_bar_request(progress_bar_url));
         yield return mono.StartCoroutine(postRequest(send_data_url, formatted_lyrics));
-        mono.StartCoroutine(downloadMP3(play_mp3_url, songName));
+
+        if(statusCode == 200)
+            mono.StartCoroutine(downloadMP3(play_mp3_url, songName));
     }
 
 
@@ -136,20 +145,22 @@ public class WebHandler
 
     }
 
-    private IEnumerator postRequest(string uri, string jsonData)
+    private IEnumerator postRequest(string uri, string jsonData) 
     {
         UnityWebRequest uwr = UnityWebRequest.Put(uri, jsonData);
         uwr.timeout = 1000;
         uwr.SetRequestHeader("Content-Type", "application/json");
 
         yield return uwr.SendWebRequest();
+        statusCode = (int)uwr.responseCode;
 
         if (uwr.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
+            Debug.Log("Error: " + uwr.result);
         }
         else
         {
+            statusCode = 200;
             result = uwr.downloadHandler.text;
             Debug.Log("Received: " + result);
         }

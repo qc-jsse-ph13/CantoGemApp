@@ -16,13 +16,12 @@ public class Init : MonoBehaviour
     
         if (string.IsNullOrEmpty(user_id))
         {
-            PlayerPrefs.SetString("user_id", GenerateUserID());
+            ResetUserID();
         }
-        Debug.Log("user_id: " + PlayerPrefs.GetString("user_id", GenerateUserID()));
     }
 
 
-    private string GenerateUserID()
+   public static void ResetUserID()
     {
         StringBuilder stringBuilder = new StringBuilder(KeyLength);
         System.Random random = new System.Random();
@@ -34,6 +33,7 @@ public class Init : MonoBehaviour
             stringBuilder.Append(randomChar);
         }
 
-        return stringBuilder.ToString();
+        PlayerPrefs.SetString("user_id", stringBuilder.ToString());
+        Debug.Log("Set user id to: " + PlayerPrefs.GetString("user_id"));
     }
 }
