@@ -69,7 +69,11 @@ public class Generator : MonoBehaviour
 
     private void saveResult(string songName, string lyrics, string result)
     {
-        string json = "{\"songName\":\"" + songName + "\",\"lyrics\":\"" + lyrics + "\",\"result\":\"" + result + "\"}";
+        string json = @$"{{
+            ""songName"": ""{songName}"",
+            ""lyrics"": ""{lyrics}"",
+            ""result"": ""{result}""
+        }}";
 
         string savePath = Application.persistentDataPath + "/" + songName + ".json";
         File.WriteAllText(savePath, json);

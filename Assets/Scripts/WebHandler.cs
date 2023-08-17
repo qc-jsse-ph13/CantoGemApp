@@ -68,19 +68,26 @@ public class WebHandler
     }
 
 
-    private IEnumerator generate(string lyrics, string songName)
+    private IEnumerator generate(string lyrics, string songName, string modelType = "random")
     {
         string base_url = server_address + "/" + user_id;
         string send_data_url = base_url + "/generate";
         string progress_bar_url = base_url + "/progress";
         string play_mp3_url = base_url + "/get-mp3";
+        string midi_url = base_url + "/get-midi";
 
-        string formatted_lyrics = "{\"lyrics\":" + "\"" + lyrics + "\"}";
+        string formatted_lyrics = @$"{{
+            ""lyrics"": ""{lyrics}"",
+            ""model_type"": ""{modelType}""
+        }}";
         mono.StartCoroutine(get_progress_bar_request(progress_bar_url));
         yield return mono.StartCoroutine(postRequest(send_data_url, formatted_lyrics));
 
-        if(statusCode == 200)
+        if (statusCode == 200) {
             mono.StartCoroutine(downloadMP3(play_mp3_url, songName));
+            // TODO: Implement
+            // mono.StartCoroutine(downloadMIDI(midi_url, songName));
+        }
     }
 
 
