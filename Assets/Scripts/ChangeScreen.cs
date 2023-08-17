@@ -12,7 +12,8 @@ public class ChangeScreen : MonoBehaviour
 
     public void GoToLyricsScreen()
     {
-        SceneManager.LoadScene("Lyrics Screen", LoadSceneMode.Single);
+        if (InputHandler.hasValidSongName)
+            SceneManager.LoadScene("Lyrics Screen", LoadSceneMode.Single);
     }
 
     public void GoToSaveScreen()

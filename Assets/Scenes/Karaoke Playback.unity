@@ -1130,8 +1130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73.008, y: -332.6825}
-  m_SizeDelta: {x: 1024, y: 553.242}
+  m_AnchoredPosition: {x: 8.4252, y: -332.6825}
+  m_SizeDelta: {x: 1097.0068, y: 553.242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730729541
 MonoBehaviour:
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Lorem ipsum this is a test '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 434b9f65bf3eaa8478cfdc28b50fd013, type: 2}
   m_sharedMaterial: {fileID: -7603959147266541063, guid: 434b9f65bf3eaa8478cfdc28b50fd013, type: 2}
@@ -1180,8 +1180,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

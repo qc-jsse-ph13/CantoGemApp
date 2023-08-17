@@ -4,38 +4,62 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.ComponentModel;
+using static Unity.Burst.Intrinsics.X86.Avx;
+using System.IO;
 
 public class InputHandler : MonoBehaviour 
 {
     public TMP_InputField inputField;
+    public TextMeshProUGUI WarningTextField;
 
-    private string songName;
-    private string lyrics;
-
-    public static bool containsIllegalCharacters = true;
+    public static bool containsIllegalCharacters;
+    public static bool hasValidSongName;
 
     public void GetSongName()
     {
-        songName = inputField.text;
+        string songName = inputField.text;
+
+        string[] mp3Files = Directory.GetFiles(Application.persistentDataPath, "*.mp3");
+        foreach (string filePath in mp3Files)
+        {
+            string fileName = Path.GetFileName(filePath);
+            if(Path.GetFileNameWithoutExtension(fileName).Equals(songName))
+            {
+                WarningTextField.text = "The song name is repeated!";
+                hasValidSongName = false;
+                return;
+            }
+
+        }
+        WarningTextField.text = "";
+        hasValidSongName = true;
+
+    
         SongHolder.Instance.songName = songName;
         Debug.Log("Song name received: " + songName);
     }
 
     public void GetLyrics()
     {
-        lyrics = inputField.text;
+        string lyrics = inputField.text;
+
+        print(containsNonChineseCharacters(lyrics));
         if (containsNonChineseCharacters(lyrics))
         {
             containsIllegalCharacters = true;
-            Debug.Log("Only chinese characters are allowed!");
+            WarningTextField.text = "Found non-Chinese words!";
+            return;
         }
-        else
-            containsIllegalCharacters = false;
 
+        WarningTextField.text = "";
+        containsIllegalCharacters = false;
+        
+
+        print(containsIllegalCharacters);
         string parsedLyrics = lyrics.Replace("\n", "|").Replace(" ", ",");
         SongHolder.Instance.lyrics = parsedLyrics;
 
-    
         Debug.Log("Lyrics received: " + parsedLyrics);
     }
 

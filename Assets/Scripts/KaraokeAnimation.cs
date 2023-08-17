@@ -13,7 +13,7 @@ public class KaraokeAnimation : MonoBehaviour
 
     public static void StartAnimation(string text, float[] durations)
     {
-        Debug.Log("text received: " + text);
+        Debug.Log("text animating: " + text);
         instance.StartCoroutine(instance.AnimateKaraoke(text, durations));
     }
 
