@@ -39,6 +39,12 @@ public class WebHandler
         mono.StartCoroutine(generate(lyrics, songName));
     }
 
+    public void tryChangeTempo(string newTempo)
+    {
+        Reset();
+        mono.StartCoroutine(changeTempo(newTempo));
+    }
+
     public string getProgress()
     {
         return progress;
@@ -90,6 +96,25 @@ public class WebHandler
         }
     }
 
+    private IEnumerator changeTempo(string newTempo)
+    {
+        string base_url = server_address + "/" + user_id;
+        string change_tempo_url = base_url + "/changetempo";
+        string play_mp3_url = base_url + "/get-mp3";
+
+        string request = @$"{{""new_tempo"": {newTempo}}}";
+
+        Debug.Log(request);
+
+        yield return mono.StartCoroutine(postRequest(change_tempo_url, request));
+
+        if (statusCode == 200) {
+            mono.StartCoroutine(downloadMP3(play_mp3_url, SongHolder.Instance.songName));
+            // TODO: Implement
+            // mono.StartCoroutine(downloadMIDI(midi_url, SongHolder.Instance.songName));
+        }
+    }
+
 
     private IEnumerator downloadMP3(string url, string songName)
     {
@@ -135,6 +160,7 @@ public class WebHandler
             else
             {
                 string text = uwr.downloadHandler.text;
+                Debug.Log(text.TrimEnd('%'));
                 float percentage = float.Parse(text.TrimEnd('%'));
 
                 if (percentage < prev_percentage)

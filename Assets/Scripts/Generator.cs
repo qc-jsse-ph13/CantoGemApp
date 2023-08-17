@@ -53,9 +53,9 @@ public class Generator : MonoBehaviour
                 return;
             }
 
-            SceneManager.LoadScene("Save Screen", LoadSceneMode.Single);
-
             saveResult(songName, lyrics, webHandler.getResult());
+
+            SceneManager.LoadScene("Save Screen", LoadSceneMode.Single);
             webHandler.Reset();
 
         } else
@@ -72,7 +72,8 @@ public class Generator : MonoBehaviour
         string json = @$"{{
             ""songName"": ""{songName}"",
             ""lyrics"": ""{lyrics}"",
-            ""result"": ""{result}""
+            ""result"": ""{result}"",
+            ""tempo"": 120
         }}";
 
         string savePath = Application.persistentDataPath + "/" + songName + ".json";

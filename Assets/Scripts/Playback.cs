@@ -32,6 +32,7 @@ public class Playback : MonoBehaviour
             string loadedSongName = songData.songName;
             string loadedLyrics = songData.lyrics;
             string loadedResult = songData.result;
+            tempo = songData.tempo;
 
             callAnimation(loadedLyrics, loadedResult);
             StartCoroutine(LoadAndPlayAudio(mp3Path));
@@ -48,12 +49,15 @@ public class Playback : MonoBehaviour
         public string songName;
         public string lyrics;
         public string result;
+        public int tempo = 120;
 
-        public SongData(string songName, string lyrics, string result)
+
+        public SongData(string songName, string lyrics, string result, int tempo = 120)
         {
             this.songName = songName;
             this.lyrics = lyrics;
             this.result = result;
+            this.tempo = tempo;
         }
     }
 
@@ -95,8 +99,7 @@ public class Playback : MonoBehaviour
 
         KaraokeAnimation.StartAnimation(formattedLyrics, actualDurationArray);
     }
-
-    private IEnumerator LoadAndPlayAudio(string path)
+    public IEnumerator LoadAndPlayAudio(string path)
     {
         audioSource = GetComponent<AudioSource>();
 
@@ -117,4 +120,11 @@ public class Playback : MonoBehaviour
         }
     }
 
+    public void stopAudio() {
+        audioSource.Stop();
+    }
+
+    private void OnDestroy() {
+        stopAudio();
+    }
 }
