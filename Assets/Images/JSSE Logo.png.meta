@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: c3cde865c727147bfa8265f7b71bd6f7
+guid: 2c82660547b764c65a0f914d683d7ef9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8587450783673775313
-    second: JSSE_Logo_0
+      213: -4928320725426320136
+    second: JSSE Logo_0
+  - first:
+      213: 8357666575768667264
+    second: JSSE Logo_1
+  - first:
+      213: -2521006992933304501
+    second: JSSE Logo_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JSSE_Logo_0
+      name: JSSE Logo_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 87
-        width: 337
-        height: 377
+        x: 30
+        y: 26
+        width: 257
+        height: 382
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +130,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d4760f4df0cc2770800000000000000
-      internalID: 8587450783673775313
+      spriteID: 8fcc4cd59661b9bb0800000000000000
+      internalID: -4928320725426320136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JSSE Logo_1
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 66
+        width: 86
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084c8d748756cf370800000000000000
+      internalID: 8357666575768667264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JSSE Logo_2
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 17
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b474fed2f75930dd0800000000000000
+      internalID: -2521006992933304501
       vertices: []
       indices: 
       edges: []
@@ -133,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -141,7 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JSSE_Logo_0: 8587450783673775313
+      JSSE Logo_0: -4928320725426320136
+      JSSE Logo_1: 8357666575768667264
+      JSSE Logo_2: -2521006992933304501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

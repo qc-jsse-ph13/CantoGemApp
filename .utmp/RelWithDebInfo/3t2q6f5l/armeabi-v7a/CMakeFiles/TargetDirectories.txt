@@ -1,0 +1,5 @@
+/Users/jellylab/CantoGem/.utmp/RelWithDebInfo/3t2q6f5l/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/jellylab/CantoGem/.utmp/RelWithDebInfo/3t2q6f5l/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/jellylab/CantoGem/.utmp/RelWithDebInfo/3t2q6f5l/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+/Users/jellylab/CantoGem/.utmp/RelWithDebInfo/3t2q6f5l/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+/Users/jellylab/CantoGem/.utmp/RelWithDebInfo/3t2q6f5l/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

@@ -67,7 +67,6 @@ public class InputHandler : MonoBehaviour
         containsIllegalCharacters = false;
 
 
-        print(containsIllegalCharacters);
         string parsedLyrics = lyrics.Replace("\n", "|").Replace(" ", ",");
         SongHolder.Instance.lyrics = parsedLyrics;
 

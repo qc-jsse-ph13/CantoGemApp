@@ -1,0 +1,3 @@
+# ninja log v5
+0	101	1692285192102000950	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b459db5c956991b4
+101	192	1692285192172288856	/Users/jellylab/CantoGem/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3t2q6f5l/obj/armeabi-v7a/libswappywrapper.so	cef857f946acc26f

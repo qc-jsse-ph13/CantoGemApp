@@ -8,7 +8,6 @@ using UnityEngine.Networking;
 using UnityEngine.Windows;
 using System.IO;
 using File = System.IO.File;
-using static UnityEditor.Progress;
 
 public class Playback : MonoBehaviour
 {
