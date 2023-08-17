@@ -19,18 +19,29 @@ public class InputHandler : MonoBehaviour
     public void GetSongName()
     {
         string songName = inputField.text;
+        if (string.IsNullOrEmpty(songName))
+        {
+            WarningTextField.text = "Song name is required!";
+            hasValidSongName = false;
+            return;
+        }
+        if (songName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+        {
+            WarningTextField.text = "Song name contains invalid characters!";
+            hasValidSongName = false;
+            return;
+        }
 
         string[] mp3Files = Directory.GetFiles(Application.persistentDataPath, "*.mp3");
         foreach (string filePath in mp3Files)
         {
             string fileName = Path.GetFileName(filePath);
-            if(Path.GetFileNameWithoutExtension(fileName).Equals(songName))
+            if (Path.GetFileNameWithoutExtension(fileName).Equals(songName))
             {
                 WarningTextField.text = "The song name is repeated!";
                 hasValidSongName = false;
                 return;
             }
-
         }
         WarningTextField.text = "";
         hasValidSongName = true;
@@ -54,7 +65,7 @@ public class InputHandler : MonoBehaviour
 
         WarningTextField.text = "";
         containsIllegalCharacters = false;
-        
+
 
         print(containsIllegalCharacters);
         string parsedLyrics = lyrics.Replace("\n", "|").Replace(" ", ",");
