@@ -31,10 +31,10 @@ public class Playback : MonoBehaviour
             string loadedSongName = songData.songName;
             string loadedLyrics = songData.lyrics;
             string loadedResult = songData.result;
+
             tempo = songData.tempo;
 
-            callAnimation(loadedLyrics, loadedResult);
-            StartCoroutine(LoadAndPlayAudio(mp3Path));
+            StartCoroutine(LoadAudioAndAnimation(mp3Path, loadedLyrics, loadedResult));
         }
         else
         {
@@ -61,6 +61,29 @@ public class Playback : MonoBehaviour
     }
 
 
+    public IEnumerator LoadAudioAndAnimation(string path, string loadedLyrics, string loadedResult)
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip("file://" + path, AudioType.MPEG))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success)
+            {
+                AudioClip audioClip = DownloadHandlerAudioClip.GetContent(www);
+                audioSource.clip = audioClip;
+                audioSource.Play();
+            }
+            else
+            {
+                Debug.LogError("Failed to load audio clip: " + www.error);
+            }
+
+            callAnimation(loadedLyrics, loadedResult);
+        }
+    }
+
     private void callAnimation(string lyrics, string resultSong)
     {
         // format result
@@ -77,7 +100,7 @@ public class Playback : MonoBehaviour
 
         StringBuilder lyricsBuilder = new StringBuilder(lyrics);
 
-       
+
         for (int i = 0, j = 0; i < elements.Length - 1; i++)
         {
             if (pitches[i] == 0)
@@ -97,26 +120,6 @@ public class Playback : MonoBehaviour
         string formattedLyrics = lyricsBuilder.ToString().Replace("|", ",");
 
         KaraokeAnimation.StartAnimation(formattedLyrics, actualDurationArray);
-    }
-    public IEnumerator LoadAndPlayAudio(string path)
-    {
-        audioSource = GetComponent<AudioSource>();
-
-        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip("file://" + path, AudioType.MPEG))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.result == UnityWebRequest.Result.Success)
-            {
-                AudioClip audioClip = DownloadHandlerAudioClip.GetContent(www);
-                audioSource.clip = audioClip;
-                audioSource.Play();
-            }
-            else
-            {
-                Debug.LogError("Failed to load audio clip: " + www.error);
-            }
-        }
     }
 
     public void stopAudio() {
