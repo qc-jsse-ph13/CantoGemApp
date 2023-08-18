@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using File = System.IO.File;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using System.ComponentModel;
 using static Unity.Burst.Intrinsics.X86.Avx;
 
@@ -123,9 +124,10 @@ public class PlaybackInterface
 
 public class SongAdjustment : MonoBehaviour
 {
-	public TMP_InputField inputField;
+	public UnityEngine.UI.Slider inputField;
 	public TextMeshProUGUI tempoChangeStatusText;
 	private WebHandler webHandler;
+	private bool BPMisProcessing = false;
 
 	void Start()
 	{
@@ -145,22 +147,16 @@ public class SongAdjustment : MonoBehaviour
 	}
 
 	public void changeTempo() {
-		try
-		{
-			Int32.Parse(inputField.text);
-		} catch
-		{
-			tempoChangeStatusText.text = "Enter an integer!";
-			return;
-		}
 		tempoChangeStatusText.text = "Changing BPM...";
-		webHandler.tryChangeTempo(inputField.text);
+		BPMisProcessing = true;
+		webHandler.tryChangeTempo(inputField.value.ToString());
 	}
 
 	void Update()
 	{
 		if (webHandler.hasFinishedDownloading())
 		{
+			BPMisProcessing = false;
 			if (webHandler.getStatusCode() != 200)
 			{
 				webHandler.Reset();
@@ -171,10 +167,16 @@ public class SongAdjustment : MonoBehaviour
 			
 			PlaybackInterface.start();
 
-			saveResult(Int32.Parse(inputField.text));
+			saveResult((int)inputField.value);
 			webHandler.Reset();
 			tempoChangeStatusText.text = "BPM change Successful";
 		}
+	}
+
+	public void updateTempoString()
+	{
+		if (BPMisProcessing) return;
+		tempoChangeStatusText.text = $"{(int)inputField.value}BPM";
 	}
 
 
