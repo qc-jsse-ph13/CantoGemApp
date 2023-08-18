@@ -1070,8 +1070,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Lorem ipsum this is a test '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01bd5efbb189fa64989d56800e58ab41, type: 2}
-  m_sharedMaterial: {fileID: 7500986104552273126, guid: 01bd5efbb189fa64989d56800e58ab41, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ada3e6bbb2bfd9449936c5bdfd7a528, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2ada3e6bbb2bfd9449936c5bdfd7a528, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

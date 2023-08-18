@@ -768,8 +768,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 01bd5efbb189fa64989d56800e58ab41, type: 2}
-  m_sharedMaterial: {fileID: 7500986104552273126, guid: 01bd5efbb189fa64989d56800e58ab41, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ada3e6bbb2bfd9449936c5bdfd7a528, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2ada3e6bbb2bfd9449936c5bdfd7a528, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1873,6 +1873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 717253283}
   WarningTextField: {fileID: 1134217990}
+  valid_chars: {fileID: 4900000, guid: 783210a23baaaf14eb7a5d601a8c4f6e, type: 3}
 --- !u!1 &2108942544
 GameObject:
   m_ObjectHideFlags: 0
