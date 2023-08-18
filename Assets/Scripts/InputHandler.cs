@@ -53,7 +53,7 @@ public class InputHandler : MonoBehaviour
         Debug.Log("Song name received: " + songName);
     }
 
-    const string punctuationMarks = "，。！：；,.!:;";
+    const string punctuationMarks = "，。！？、：；,.!:;?";
 
     public void GetLyrics()
     {
