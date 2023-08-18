@@ -53,9 +53,9 @@ public class Generator : MonoBehaviour
                 return;
             }
 
+            SceneManager.LoadScene("Save Screen", LoadSceneMode.Single);
             saveResult(songName, lyrics, webHandler.getResult());
 
-            SceneManager.LoadScene("Save Screen", LoadSceneMode.Single);
             webHandler.Reset();
 
         } else

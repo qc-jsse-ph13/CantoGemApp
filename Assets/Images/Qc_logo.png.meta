@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Qc_logo_0: -2212473081878538386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
