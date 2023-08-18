@@ -1873,6 +1873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 717253283}
   WarningTextField: {fileID: 1134217990}
+  valid_chars: {fileID: 4900000, guid: 783210a23baaaf14eb7a5d601a8c4f6e, type: 3}
 --- !u!1 &2108942544
 GameObject:
   m_ObjectHideFlags: 0

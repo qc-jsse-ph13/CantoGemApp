@@ -43,11 +43,15 @@ public class Generator : MonoBehaviour
         {
             if (webHandler.getStatusCode() != 200)
             {
-                if(webHandler.getStatusCode() == 409)
+                if (webHandler.getStatusCode() == 409)
                 {
                     SceneManager.LoadScene("Home Screen", LoadSceneMode.Single);
                     Init.ResetUserID();
                     Debug.Log("Re-generating user-id");
+                }
+                if (webHandler.getStatusCode() == 400)
+                {
+                    SceneManager.LoadScene("Lyrics Screen", LoadSceneMode.Single);
                 }
                 webHandler.Reset();
                 return;
@@ -61,7 +65,13 @@ public class Generator : MonoBehaviour
         } else
         {
             string percentageText = webHandler.getProgress();
-            tmp.text = "Progress: " + percentageText;
+            if (percentageText == "0.00%") {
+                tmp.text = "Pending...";
+            } else if (percentageText == "100.00%") {
+                tmp.text = "Rendering audio...";
+            } else {
+                tmp.text = "Progress: " + percentageText;
+            }
             transform.localScale = new Vector3(float.Parse(percentageText.TrimEnd('%')) / 100f, 1f, 1f);
         }
 
