@@ -86,19 +86,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_AnchoredPosition.x
-    value: -50
+    value: -30
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_AnchoredPosition.y
-    value: 50
+    value: 30
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SizeDelta.x
-    value: 200
+    value: 177
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SizeDelta.y
-    value: 180
+    value: 152
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Pivot.x
