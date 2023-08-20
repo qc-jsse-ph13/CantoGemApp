@@ -791,7 +791,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666982344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1004,8 +1004,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ada3e6bbb2bfd9449936c5bdfd7a528, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2ada3e6bbb2bfd9449936c5bdfd7a528, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1093,6 +1093,7 @@ GameObject:
   - component: {fileID: 1260233457}
   - component: {fileID: 1260233462}
   - component: {fileID: 1260233463}
+  - component: {fileID: 1260233464}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1206,6 +1207,29 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1260233464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260233456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a538a97560146319e61c0cad5f7c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateText: {fileID: 0}
+  libraryText: {fileID: 0}
+  karaokeText: {fileID: 0}
+  playText: {fileID: 0}
+  lyricsHint: {fileID: 0}
+  saveSongText: {fileID: 0}
+  previewText: {fileID: 0}
+  changeTempoText: {fileID: 0}
+  continueText: {fileID: 1425664328}
+  enterSongNameText: {fileID: 498197654}
+  songNameHint: {fileID: 251503862}
 --- !u!1 &1398674862
 GameObject:
   m_ObjectHideFlags: 0

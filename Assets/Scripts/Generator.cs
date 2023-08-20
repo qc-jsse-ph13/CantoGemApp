@@ -66,11 +66,11 @@ public class Generator : MonoBehaviour
         {
             string percentageText = webHandler.getProgress();
             if (percentageText == "0.00%") {
-                tmp.text = "Pending...";
+                tmp.text = Texts.PENDING;
             } else if (percentageText == "100.00%") {
-                tmp.text = "Rendering audio...";
+                tmp.text = Texts.RENDERINGAUDIO;
             } else {
-                tmp.text = "Progress: " + percentageText;
+                tmp.text = Texts.PROGRESS + percentageText;
             }
             transform.localScale = new Vector3(float.Parse(percentageText.TrimEnd('%')) / 100f, 1f, 1f);
         }

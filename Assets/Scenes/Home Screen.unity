@@ -742,7 +742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: En
+  m_text: EN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260233456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30371772db524d4a9e449fe0ae94d3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 45a538a97560146319e61c0cad5f7c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generateText: {fileID: 1425664328}
@@ -1052,7 +1052,6 @@ GameObject:
   - component: {fileID: 1272508959}
   - component: {fileID: 1272508962}
   - component: {fileID: 1272508960}
-  - component: {fileID: 1272508963}
   m_Layer: 5
   m_Name: 'Chinese '
   m_TagString: Untagged
@@ -1124,7 +1123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272508963}
+      - m_Target: {fileID: 1260233464}
         m_TargetAssemblyTypeName: Texts, Assembly-CSharp
         m_MethodName: SetLanguageToChinese
         m_Mode: 1
@@ -1144,18 +1143,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272508958}
   m_CullTransparentMesh: 1
---- !u!114 &1272508963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272508958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a538a97560146319e61c0cad5f7c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1282755440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2297,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 280, y: 50}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 230, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2135827593
 MonoBehaviour:
@@ -2356,7 +2343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272508963}
+      - m_Target: {fileID: 1260233464}
         m_TargetAssemblyTypeName: Texts, Assembly-CSharp
         m_MethodName: SetLanguageToEnglish
         m_Mode: 1

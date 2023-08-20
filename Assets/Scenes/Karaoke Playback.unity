@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 1260233457}
   - component: {fileID: 1260233462}
   - component: {fileID: 1260233463}
+  - component: {fileID: 1260233464}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -596,6 +597,29 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1260233464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260233456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a538a97560146319e61c0cad5f7c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateText: {fileID: 0}
+  libraryText: {fileID: 0}
+  karaokeText: {fileID: 1270729873}
+  playText: {fileID: 0}
+  lyricsHint: {fileID: 0}
+  saveSongText: {fileID: 0}
+  previewText: {fileID: 0}
+  changeTempoText: {fileID: 0}
+  continueText: {fileID: 0}
+  enterSongNameText: {fileID: 0}
+  songNameHint: {fileID: 0}
 --- !u!1 &1270729869
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +713,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 143.3
+  m_fontSize: 170.5
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1267,7 +1291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationCenter: {fileID: 1909848069}
-  omega: 10
+  omega: -30
 --- !u!114 &1909848071
 MonoBehaviour:
   m_ObjectHideFlags: 0

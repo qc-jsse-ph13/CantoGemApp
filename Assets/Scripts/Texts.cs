@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Net.NetworkInformation;
 
 public class Texts : MonoBehaviour
 {
@@ -89,7 +91,7 @@ public class Texts : MonoBehaviour
             switch (language)
             {
                 case Languages.CHIN:
-                    return "等待處理";
+                    return "請耐心等待...";
                 case Languages.ENG:
                     return "Pending...";
             }
@@ -103,9 +105,9 @@ public class Texts : MonoBehaviour
             switch (language)
             {
                 case Languages.CHIN:
-                    return "處理中：";
+                    return "處理中： ";
                 case Languages.ENG:
-                    return "Progress";
+                    return "Progress: ";
             }
             return "";
         }
@@ -117,7 +119,7 @@ public class Texts : MonoBehaviour
             switch (language)
             {
                 case Languages.CHIN:
-                    return "創建音頻文件";
+                    return "創建音頻文件...";
                 case Languages.ENG:
                     return "Rendering audio...";
             }
@@ -126,7 +128,7 @@ public class Texts : MonoBehaviour
     }
 
 
-    public static string ENTERSONGNAME
+    public static string ENTER_SONG_NAME
     {
         get
         {
@@ -141,7 +143,7 @@ public class Texts : MonoBehaviour
         }
     }
 
-    public static string SONGNAMEHERE
+    public static string SONG_NAME_HERE
     {
         get
         {
@@ -151,6 +153,21 @@ public class Texts : MonoBehaviour
                     return "歌名";
                 case Languages.ENG:
                     return "Song name here";
+            }
+            return "";
+        }
+    }
+
+    public static string CONTINUE
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return "繼續";
+                case Languages.ENG:
+                    return "Continue";
             }
             return "";
         }
@@ -178,7 +195,7 @@ public class Texts : MonoBehaviour
             switch (language)
             {
                 case Languages.CHIN:
-                    return "請輸入歌名";
+                    return "請輸入歌名！";
                 case Languages.ENG:
                     return "Song name is required!";
             }
@@ -193,9 +210,41 @@ public class Texts : MonoBehaviour
             switch (language)
             {
                 case Languages.CHIN:
-                    return "歌名包含無效字符";
+                    return "歌名包含無效字符！";
                 case Languages.ENG:
                     return "Song name contains invalid characters!";
+            }
+            return "";
+        }
+    }
+
+    public static string WARNING_TEXT_SONG_NAME_REPEATED
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return "歌名已經被取用！";
+                case Languages.ENG:
+                    return "Song name already exists!";
+            }
+            return "";
+        }
+    }
+
+    public static string ENTER_LYRICS
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return @"輸入歌詞
+用空格鍵或輸入新行以分開句子";
+                case Languages.ENG:
+                    return @"ENTER LYRICS
+Use spaces or new lines to separate phrases";
             }
             return "";
         }
@@ -246,6 +295,82 @@ public class Texts : MonoBehaviour
         }
     }
 
+    public static string CHANGING_BPM
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return "正在改變速度...";
+                case Languages.ENG:
+                    return "Changing speed...";
+            }
+            return "";
+        }
+    }
 
+    public static string BPM_CHANGE_SUCCESSFUL
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return "成功改變速度";
+                case Languages.ENG:
+                    return "Successfully changed speed";
+            }
+            return "";
+        }
+    }
+
+    public static string BPM_CHANGE_FAILED
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return "改變速度失敗";
+                case Languages.ENG:
+                    return "Could not change speed";
+            }
+            return "";
+        }
+    }
+
+    
+    public TextMeshProUGUI generateText;
+    public TextMeshProUGUI libraryText;
+    public TextMeshProUGUI karaokeText;
+    public TextMeshProUGUI playText;
+    public TextMeshProUGUI lyricsHint;
+    public TextMeshProUGUI saveSongText;
+    public TextMeshProUGUI previewText;
+    public TextMeshProUGUI changeTempoText;
+    public TextMeshProUGUI continueText;
+    public TextMeshProUGUI enterSongNameText;
+    public TextMeshProUGUI songNameHint;
+
+    void Start()
+    {
+        if (generateText != null) generateText.text = GENERATE;
+        if (libraryText != null) libraryText.text = LIBRARY;
+        if (karaokeText != null) karaokeText.text = KARAOKE_STATION;
+        if (playText != null) playText.text = PLAY;
+        if (lyricsHint != null) lyricsHint.text = ENTER_LYRICS;
+        if (saveSongText != null) saveSongText.text = SAVE_SONG_TO_LIBRARY;
+        if (previewText != null) previewText.text = PREVIEW_PLAYBACK;
+        if (changeTempoText != null) changeTempoText.text = CHANGE_BPM;
+        if (continueText != null) continueText.text = CONTINUE;
+        if (enterSongNameText != null) enterSongNameText.text = ENTER_SONG_NAME;
+        if (songNameHint != null) songNameHint.text = SONG_NAME_HERE;
+    }
+
+    void Update()
+    {
+        Start();
+    }
 
 }

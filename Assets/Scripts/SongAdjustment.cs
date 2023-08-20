@@ -147,7 +147,7 @@ public class SongAdjustment : MonoBehaviour
 	}
 
 	public void changeTempo() {
-		tempoChangeStatusText.text = "Changing BPM...";
+		tempoChangeStatusText.text = Texts.CHANGING_BPM;
 		BPMisProcessing = true;
 		webHandler.tryChangeTempo(inputField.value.ToString());
 	}
@@ -160,7 +160,7 @@ public class SongAdjustment : MonoBehaviour
 			if (webHandler.getStatusCode() != 200)
 			{
 				webHandler.Reset();
-				tempoChangeStatusText.text = "BPM change Failed";
+				tempoChangeStatusText.text = Texts.BPM_CHANGE_FAILED;
 				return;
 			}
 
@@ -169,7 +169,7 @@ public class SongAdjustment : MonoBehaviour
 
 			saveResult((int)inputField.value);
 			webHandler.Reset();
-			tempoChangeStatusText.text = "BPM change Successful";
+			tempoChangeStatusText.text = Texts.BPM_CHANGE_SUCCESSFUL;
 		}
 	}
 

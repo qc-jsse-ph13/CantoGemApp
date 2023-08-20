@@ -23,13 +23,13 @@ public class InputHandler : MonoBehaviour
         string songName = inputField.text;
         if (string.IsNullOrEmpty(songName))
         {
-            WarningTextField.text = "Song name is required!";
+            WarningTextField.text = Texts.WARNING_TEXT_SONG_NAME_BLANK;
             hasValidSongName = false;
             return;
         }
         if (songName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
         {
-            WarningTextField.text = "Song name contains invalid characters!";
+            WarningTextField.text = Texts.WARNING_TEXT_SONG_NAME_INVALID;
             hasValidSongName = false;
             return;
         }
@@ -40,7 +40,7 @@ public class InputHandler : MonoBehaviour
             string fileName = Path.GetFileName(filePath);
             if (Path.GetFileNameWithoutExtension(fileName).Equals(songName))
             {
-                WarningTextField.text = "The song name is repeated!";
+                WarningTextField.text = Texts.WARNING_TEXT_SONG_NAME_REPEATED;
                 hasValidSongName = false;
                 return;
             }
@@ -67,7 +67,7 @@ public class InputHandler : MonoBehaviour
         if (containsNonChineseCharacters(parsedLyrics.Replace("|", "").Replace(",", "")))
         {
             containsIllegalCharacters = true;
-            WarningTextField.text = "Found non-Chinese words!";
+            WarningTextField.text = Texts.WARNING_TEXT_LYRICS;
             return;
         }
 
