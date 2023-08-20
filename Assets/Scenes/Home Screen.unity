@@ -1041,6 +1041,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generateText: {fileID: 1425664328}
   libraryText: {fileID: 78099645}
+  karaokeText: {fileID: 0}
+  playText: {fileID: 0}
+  lyricsHint: {fileID: 0}
+  saveSongText: {fileID: 0}
+  previewText: {fileID: 0}
+  changeTempoText: {fileID: 0}
+  continueText: {fileID: 0}
+  enterSongNameText: {fileID: 0}
+  songNameHint: {fileID: 0}
 --- !u!1 &1272508958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,8 +1332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -74.00006}
-  m_SizeDelta: {x: 750, y: 720}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1287236150
 MonoBehaviour:
