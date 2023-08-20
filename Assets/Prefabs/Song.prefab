@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8379267, g: 0.9622642, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.96089375, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title of Song
+  m_text: Title of song
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3c676e602be640c0b180587e031e2eb, type: 2}
   m_sharedMaterial: {fileID: 611477164771864059, guid: f3c676e602be640c0b180587e031e2eb, type: 2}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.15
+  m_fontSize: 60.25
   m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 1

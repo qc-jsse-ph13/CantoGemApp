@@ -76,7 +76,7 @@ public class KaraokeAnimation : MonoBehaviour
 
                     var gradientColour = ColorUtility.ToHtmlStringRGBA(color);
                     var animatedColour = ColorUtility.ToHtmlStringRGBA(colorGradient.Evaluate(1));
-                    var unanimatedColour = ColorUtility.ToHtmlStringRGBA(Color.black);
+                    var unanimatedColour = ColorUtility.ToHtmlStringRGBA(Color.white);
 
                     textMeshPro.text = "<color=#" + animatedColour + ">" + animatedText +
                                       "<color=#" + gradientColour + ">" + animatingText +
@@ -88,7 +88,7 @@ public class KaraokeAnimation : MonoBehaviour
             }
         }
 
-        // Reset text to its original value
-        textMeshPro.text = text;
+        // Reset text 
+        textMeshPro.text = "";
     }
 }
