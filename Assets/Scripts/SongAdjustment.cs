@@ -128,11 +128,12 @@ public class SongAdjustment : MonoBehaviour
 	public TextMeshProUGUI tempoChangeStatusText;
 	private WebHandler webHandler;
 	private bool BPMisProcessing = false;
+	string user_id;
 
 	void Start()
 	{
 		PlaybackInterface.init(this);
-		string user_id = PlayerPrefs.GetString("user_id");
+		user_id = PlayerPrefs.GetString("user_id");
 
 		if (string.IsNullOrEmpty(user_id))
 		{
@@ -150,6 +151,13 @@ public class SongAdjustment : MonoBehaviour
 		tempoChangeStatusText.text = Texts.CHANGING_BPM;
 		BPMisProcessing = true;
 		webHandler.tryChangeTempo(inputField.value.ToString());
+	}
+
+	public void downloadMidi()
+	{
+        string base_url = "http://8.222.130.100/" + user_id;
+        string midi_url = base_url + "/get-midi";
+        Application.OpenURL(midi_url);
 	}
 
 	void Update()

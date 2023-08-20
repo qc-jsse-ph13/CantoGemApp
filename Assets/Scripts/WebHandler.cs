@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 
 public class WebHandler
 {
-    private const String server_address = "http://8.222.130.100";
+    private const string server_address = "http://8.222.130.100";
     private string user_id;
     
     private string progress;
@@ -80,7 +80,6 @@ public class WebHandler
         string send_data_url = base_url + "/generate";
         string progress_bar_url = base_url + "/progress";
         string play_mp3_url = base_url + "/get-mp3";
-        string midi_url = base_url + "/get-midi";
 
         string formatted_lyrics = @$"{{
             ""lyrics"": ""{lyrics}"",

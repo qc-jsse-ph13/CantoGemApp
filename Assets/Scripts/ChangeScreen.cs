@@ -41,4 +41,15 @@ public class ChangeScreen : MonoBehaviour
     {
         SceneManager.LoadScene("All melodies", LoadSceneMode.Single);
     }
+
+
+    public void OpenInstagram()
+    {
+        Application.OpenURL("https://www.instagram.com/qc_jsse");
+    }
+
+    public void BuyUsACoffeePlsPlsPls()
+    {
+        Application.OpenURL("https://www.buymeacoffee.com/jellylab");
+    }
 }

@@ -265,6 +265,21 @@ Use spaces or new lines to separate phrases";
         }
     }
 
+    public static string DOWNLOAD_MIDI
+    {
+        get
+        {
+            switch (language)
+            {
+                case Languages.CHIN:
+                    return "下載 .midi";
+                case Languages.ENG:
+                    return "Download .midi";
+            }
+            return "";
+        }
+    }
+
     public static string CHANGE_BPM
     {
         get
@@ -348,6 +363,7 @@ Use spaces or new lines to separate phrases";
     public TextMeshProUGUI lyricsHint;
     public TextMeshProUGUI saveSongText;
     public TextMeshProUGUI previewText;
+    public TextMeshProUGUI downloadMidiText;
     public TextMeshProUGUI changeTempoText;
     public TextMeshProUGUI continueText;
     public TextMeshProUGUI enterSongNameText;
@@ -362,6 +378,7 @@ Use spaces or new lines to separate phrases";
         if (lyricsHint != null) lyricsHint.text = ENTER_LYRICS;
         if (saveSongText != null) saveSongText.text = SAVE_SONG_TO_LIBRARY;
         if (previewText != null) previewText.text = PREVIEW_PLAYBACK;
+        if (downloadMidiText != null) downloadMidiText.text = DOWNLOAD_MIDI;
         if (changeTempoText != null) changeTempoText.text = CHANGE_BPM;
         if (continueText != null) continueText.text = CONTINUE;
         if (enterSongNameText != null) enterSongNameText.text = ENTER_SONG_NAME;
