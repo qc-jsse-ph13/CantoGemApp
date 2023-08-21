@@ -53,7 +53,7 @@ public class InputHandler : MonoBehaviour
         Debug.Log("Song name received: " + songName);
     }
 
-    const string punctuationMarks = "，。！？、：；,.!:;?";
+    const string punctuationMarks = "，。！？、：；“”‘–’⸺「-」『』《》〈〉（）【】.,!:;?'\"(){}[]";
 
     public void GetLyrics()
     {
@@ -62,7 +62,7 @@ public class InputHandler : MonoBehaviour
         foreach (char punctuation in punctuationMarks) {
             parsedLyrics = parsedLyrics.Replace($"{punctuation}", ",");
         }
-        parsedLyrics = parsedLyrics.Replace("\n", "|").Replace(" ", ",");
+        parsedLyrics = parsedLyrics.Replace("\r", "").Replace("\n", "|").Replace(" ", ",");
 
         if (containsNonChineseCharacters(parsedLyrics.Replace("|", "").Replace(",", "")))
         {
