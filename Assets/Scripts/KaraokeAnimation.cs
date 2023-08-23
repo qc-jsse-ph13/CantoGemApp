@@ -57,9 +57,9 @@ public class KaraokeAnimation : MonoBehaviour
             string section = sections[secIndex];
             string formattedSection = FormatText(section);
 
+            float elapsedTime = 0f;
             for (int i = 0; i < formattedSection.Length; i++)
             {
-                float elapsedTime = 0f;
                 float letterDuration = letterDurations[totalVisibleCharacterCount];
                 totalVisibleCharacterCount++;
 
@@ -85,6 +85,7 @@ public class KaraokeAnimation : MonoBehaviour
 
                     yield return null;
                 }
+                elapsedTime -= letterDuration;
             }
         }
 
